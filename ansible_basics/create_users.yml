@@ -1,0 +1,12 @@
+- name: Create Users
+  hosts: webserver2
+  become: yes
+  tasks:
+    - name: Create saurabh users
+      user:
+        name: "saurabh"
+        state: present
+    - name: Create another users
+      user:
+        name: "alex"
+        state: present

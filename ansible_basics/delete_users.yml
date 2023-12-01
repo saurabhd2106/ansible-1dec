@@ -1,5 +1,7 @@
 - name: Create Users
-  hosts: webserver2
+  hosts: 
+    - webserver1
+    - webserver2
   become: yes
   vars:
     users:

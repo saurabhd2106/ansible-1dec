@@ -1,0 +1,16 @@
+[webserver]
+
+webserver1 ansible_host=web.ironhac.com ansible_connection=ssh ansible_user=adminuser ansbile_ssh_pass=test@123
+webserver2 ansible_host=ansible_host ansible_connection=ssh ansible_user=adminuser ansbile_ssh_pass=test@123
+
+[loadbalancer]
+
+lb ansible_host=lb1 ansible_connection=ssh ansible_user=adminuser ansbile_ssh_pass=test@123
+
+[databases]
+
+db ansible_host=db[01:50] ansible_connection=ssh ansible_user=adminuser ansbile_ssh_pass=test@123
+
+[servers:children]
+webserver
+loadbalancer

@@ -1,12 +1,16 @@
 - name: Create Users
   hosts: webserver2
   become: yes
+  vars:
+    users:
+      - helena
+      - Aljendro
+      - Alex
+      - Sameul
+      - Alberto
   tasks:
     - name: Create saurabh users
       user:
-        name: "saurabh"
+        name: "{{ item }}"
         state: present
-    - name: Create another users
-      user:
-        name: "alex"
-        state: present
+      loop: "{{ users }}"

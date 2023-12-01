@@ -2,13 +2,12 @@
   hosts: all
   become: yes
   tasks:
-    -name: Install apache
+    - name: Install apache
       apt:
         name: apache2
         state: present
-        update_cache: yes
-    
-    -name: Start apache
+        update_cache: yes   
+    - name: Start apache
       apt:
         name: apache2
         state: started

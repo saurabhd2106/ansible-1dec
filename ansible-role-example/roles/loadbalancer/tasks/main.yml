@@ -1,18 +1,16 @@
-- name: Install loadbalancer 
-  tasks:
-    - name: Install all apps server
-      apt:
-        name: "{{ apps }}"
-        state: present
-        update_cache: yes
-      become: true
 
-- name: Copy config file in load balancer
-  tasks:
-    - name: Upload config file in load balancer
-      copy:
-        src: ./config/loadbalancer.conf
-        dest: /etc/apache2/sites-available/000-default.conf
-        mode: 0755
-      become: true
-      notify: Restart apache server
+- name: Install all apps server
+  apt:
+    name: "{{ apps }}"
+      state: present
+      update_cache: yes
+    become: true
+
+
+- name: Upload config file in load balancer
+  copy:
+    src: ./config/loadbalancer.conf
+    dest: /etc/apache2/sites-available/000-default.conf
+    mode: 0755
+  become: true
+  notify: Restart apache server

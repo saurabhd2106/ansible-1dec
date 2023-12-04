@@ -1,10 +1,9 @@
-
 - name: Install all apps server
   apt:
     name: "{{ apps }}"
-      state: present
-      update_cache: yes
-    become: true
+    state: present
+    update_cache: yes
+  become: true
 
 
 - name: Upload config file in load balancer

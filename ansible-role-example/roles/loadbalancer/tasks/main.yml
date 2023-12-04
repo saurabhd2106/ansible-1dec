@@ -1,5 +1,4 @@
 - name: Install loadbalancer 
-  hosts: all
   tasks:
     - name: Install all apps server
       apt:
@@ -9,7 +8,6 @@
       become: true
 
 - name: Copy config file in load balancer
-  hosts: loadbalancer
   tasks:
     - name: Upload config file in load balancer
       copy:

@@ -1,5 +1,4 @@
 - name: Install web servers
-  hosts: all
   tasks:
     - name: Install all apps server
       apt:
@@ -9,7 +8,6 @@
       become: true
 
 - name: Copy index.php file and move to the server
-  hosts: webservers
   tasks:
     - name: Upload index.php file
       copy:

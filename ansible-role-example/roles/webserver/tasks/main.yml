@@ -1,17 +1,13 @@
-- name: Install web servers
-  tasks:
-    - name: Install all apps server
-      apt:
-        name: "{{ apps }}"
-        state: present
-        update_cache: yes
-      become: true
+- name: Install all apps server
+  apt:
+    name: "{{ apps }}"
+    state: present
+    update_cache: yes
+  become: true
 
-- name: Copy index.php file and move to the server
-  tasks:
-    - name: Upload index.php file
-      copy:
-        src: index.php
-        dest: /var/www/html
-        mode: 0755
-      become: true
+- name: Upload index.php file
+  copy:
+    src: index.php
+    dest: /var/www/html
+    mode: 0755
+  become: true

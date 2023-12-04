@@ -1,15 +1,17 @@
 - name: Uninstall apache 2
   hosts: all
   become: yes
+  vars_file:
+    - vars.yml
   tasks:
     - name: Stop apache
       service:
-        name: apache2
+        name: {{ package_name }}
         state: stopped
         enabled: no
     - name: Uninstall apache
       apt:
-        name: apache2
+        name: {{ package_name }}
         state: absent
         purge: yes
         autoremove: yes
